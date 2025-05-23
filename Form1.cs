@@ -25,7 +25,7 @@ namespace PROYECTOFINAL1
 
         public class GroqApiService
         {
-            private readonly string _apiKey = "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";
+            private readonly string _apiKey = "gsk_QtkxOIGgCjP8HrNwkWJVWGdyb3FY7X1V2axPa9tSBxMbWAqUSr5";
 
             private readonly string[] _modelosDisponibles =
             {
@@ -86,10 +86,10 @@ namespace PROYECTOFINAL1
                     }
                 }
 
-                throw new Exception($"Todos los modelos fallaron. Último error: {lastError?.Message}");
+                throw new Exception($"Todos los modelos fallaron. Ãšltimo error: {lastError?.Message}");
             }
         }
-        // ... (Resto del código permanece igual: DatabaseService, WordGenerator, PowerPointGenerator)
+        // ... (Resto del cÃ³digo permanece igual: DatabaseService, WordGenerator, PowerPointGenerator)
 
         private async void btnConsultar_Click(object sender, EventArgs e)
         {
@@ -116,9 +116,9 @@ namespace PROYECTOFINAL1
             {
                 rtbResultado.Text = $"Error al consultar la IA:\n{ex.Message}";
 
-                // Mensaje más detallado en el MessageBox
-                string mensajeError = ex.Message.Contains("Error de conexión")
-                    ? $"No se pudo conectar al servicio de IA. Verifique:\n1. Su conexión a Internet\n2. Que la API key sea válida\n3. El estado del servicio en status.groq.com\n\nError técnico: {ex.Message}"
+                // Mensaje mÃ¡s detallado en el MessageBox
+                string mensajeError = ex.Message.Contains("Error de conexiÃ³n")
+                    ? $"No se pudo conectar al servicio de IA. Verifique:\n1. Su conexiÃ³n a Internet\n2. Que la API key sea vÃ¡lida\n3. El estado del servicio en status.groq.com\n\nError tÃ©cnico: {ex.Message}"
                     : $"Error: {ex.Message}";
 
                 MessageBox.Show(mensajeError, "Error en la consulta", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -149,12 +149,12 @@ namespace PROYECTOFINAL1
                     mainPart.Document = new DocumentFormat.OpenXml.Wordprocessing.Document();
                     Body body = new DocumentFormat.OpenXml.Wordprocessing.Body();
 
-                    // Crear párrafo con el texto (usando el namespace completo)
+                    // Crear pÃ¡rrafo con el texto (usando el namespace completo)
                     var paragraph = new DocumentFormat.OpenXml.Wordprocessing.Paragraph();
                     var run = new DocumentFormat.OpenXml.Wordprocessing.Run();
                     run.AppendChild(new DocumentFormat.OpenXml.Wordprocessing.Text(rtbResultado.Text));
 
-                    // Añadir formato opcional (negrita, fuente, tamaño)
+                    // AÃ±adir formato opcional (negrita, fuente, tamaÃ±o)
                     run.PrependChild(
                         new DocumentFormat.OpenXml.Wordprocessing.RunProperties(
                             new DocumentFormat.OpenXml.Wordprocessing.Bold(),
@@ -169,7 +169,7 @@ namespace PROYECTOFINAL1
                     mainPart.Document.Save();
                 }
 
-                MessageBox.Show($"Documento guardado en el Escritorio: Resultado_IA.docx", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Documento guardado en el Escritorio: Resultado_IA.docx", "Ã‰xito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -206,7 +206,7 @@ namespace PROYECTOFINAL1
                 Slide slide = slidePart.Slide;
                 ShapeTree shapeTree = slide.CommonSlideData.ShapeTree;
 
-                // Agrega título
+                // Agrega tÃ­tulo
                 shapeTree.AppendChild(CreateTextShape("Resultado IA", 1000000, 500000));
 
                 // Agrega contenido del resultado
@@ -223,7 +223,7 @@ namespace PROYECTOFINAL1
                 presentationPart.Presentation.Save();
             }
 
-            MessageBox.Show($"Presentación guardada en: {filePath}", "Exportación a PowerPoint", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"PresentaciÃ³n guardada en: {filePath}", "ExportaciÃ³n a PowerPoint", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
 
@@ -277,7 +277,7 @@ namespace PROYECTOFINAL1
             }
             else
             {
-                MessageBox.Show("Uno o ambos archivos no existen. Genérelos primero.");
+                MessageBox.Show("Uno o ambos archivos no existen. GenÃ©relos primero.");
             }
         
 

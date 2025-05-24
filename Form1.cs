@@ -25,7 +25,7 @@ namespace PROYECTOFINAL1
 
         public class GroqApiService
         {
-            private readonly string _apiKey = "gsk_QtkxO";
+            private readonly string _apiKey = "aqui va mi api key la quite por seguridad";
 
             private readonly string[] _modelosDisponibles =
             {
